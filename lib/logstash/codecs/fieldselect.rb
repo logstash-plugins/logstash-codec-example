@@ -54,6 +54,10 @@ class LogStash::Codecs::Fieldselect < LogStash::Codecs::Base
   def field_concater(data)
     concated = ""
     @fields.each do |field|
+      if data[field] == nil 
+        concated += ","
+        next
+      end
       concated += data[field] + ", "
     end
     concated.chomp!(", ")
