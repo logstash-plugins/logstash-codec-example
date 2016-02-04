@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name            = 'logstash-codec-fieldselect'
-  s.version         = '0.0.1'
+  s.version         = '0.0.2'
   s.licenses        = ['Apache License (2.0)']
   s.summary         = "This codec was created to select certain fields for output"
   s.description     = "This gem is a logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/plugin install gemname. This gem is not a stand-alone program"
