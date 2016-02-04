@@ -1,2 +1,3 @@
-# logstash-codec-example
-Example codec plugin. This should help bootstrap your effort to write your own codec plugin!
+# logstash-codec-fieldselect
+Specify which fields should passed out of the codec.  Great for
+outputting a specific record format
