@@ -30,7 +30,9 @@ class LogStash::Codecs::Fieldselect < LogStash::Codecs::Base
   public
   def decode(data)
     @lines.decode(data) do |line|
+      logger.debug? and @logger.debug("Running fieldselect codec", :data => data)
       selected = field_selector(line)
+      logger.debug? and @logger.debug("Fieldselect codec ran", :selected => selected)
       yield LogStash::Event.new(selected)
     end
   end # def decode
@@ -58,7 +60,7 @@ class LogStash::Codecs::Fieldselect < LogStash::Codecs::Base
         concated += ","
         next
       end
-      concated += data[field] + ", "
+      concated += data[field].to_s + ", "
     end
     concated.chomp!(", ")
     return concated + "\n"
